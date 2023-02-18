@@ -20,7 +20,8 @@ public class Main {
         String result;
         boolean isRoman;
         String[] operands = inputLine.split(" ");
-        if (operands.length != 3) throw new Exception("Вводить нужно тольк два числа и операцию");
+        if (operands.length != 3)
+            throw new Exception("Строка не является математической операцией или формат математической операции не удовлетворяет заданию.");
         operation = detectOperation(inputLine);
         if (operation == null) throw new Exception("Не найдена математическая операция");
         if (RomanToArabian.isRoman(operands[0]) && RomanToArabian.isRoman(operands[2])) {
@@ -31,7 +32,7 @@ public class Main {
             num1 = Integer.parseInt(operands[0]);
             num2 = Integer.parseInt(operands[2]);
             isRoman = false;
-        } else throw new Exception("Числа должы быть только римскими или только арабскими");
+        } else throw new Exception("Используются одновременно разные системы счисления");
         if (num1 > 10 || num2 > 10) {
             throw new Exception("Числа должны быть от 1 до 10");
         }
